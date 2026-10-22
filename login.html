@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STACKLY | Secure Login</title>
+
+    <link rel="stylesheet" href="./css/login.css">
+
+    <style>
+        /* Create-account slide animation: additive styles only */
+        .auth-card-slider {
+            display: grid;
+            width: 100%;
+            min-width: 0;
+            perspective: 1200px;
+        }
+
+        .auth-card-slider > .auth-card {
+            grid-area: 1 / 1;
+            width: 100%;
+            min-width: 0;
+            transition: transform 650ms cubic-bezier(.2,.8,.2,1), opacity 450ms ease, filter 450ms ease;
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+        }
+
+        .auth-card-slider:not(.show-signup) > #signupCard {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateX(90px) rotateY(-7deg) scale(.97);
+            filter: blur(5px);
+        }
+
+        .auth-card-slider.show-signup > #loginCard {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateX(-90px) rotateY(7deg) scale(.97);
+            filter: blur(5px);
+        }
+
+        .auth-card-slider:not(.show-signup) > #loginCard {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0) rotateY(0) scale(1);
+        }
+
+        .auth-card-slider.show-signup > #signupCard {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(0) rotateY(0) scale(1);
+            filter: blur(0);
+        }
+
+        .create-account-trigger {
+            appearance: none;
+            border: 0;
+            padding: 0;
+            background: transparent;
+            color: #c99037;
+            font: inherit;
+            font-weight: 700;
+            cursor: pointer;
+            transition: color .25s ease;
+        }
+
+        .create-account-trigger:hover,
+        .create-account-trigger:focus-visible {
+            color: #e4b65f;
+            outline: none;
+        }
+
+        .create-account-trigger:focus-visible {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .signup-card {
+            overflow: hidden;
+        }
+
+        .signup-card .form-heading h2 {
+            margin-top: 0;
+        }
+
+        .signup-card .input-group {
+            margin-bottom: 15px;
+        }
+
+        .signup-card .existing-account-link {
+            margin-top: 18px;
+        }
+
+        .signup-card .form-message:empty {
+            display: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .auth-card-slider > .auth-card {
+                transition: none;
+            }
+        }
+
+        .create-account-link {
+            margin-left: 30px;
+            margin-top: 5px;
+        }
+
+
+    </style>
+
+    <!-- Remix Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Animated Background -->
+    <div class="background-scene">
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+        <div class="glow glow-three"></div>
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="gold-particles" id="goldParticles"></div>
+    </div>
+
+    <!-- Top Brand -->
+<header class="login-header">
+
+    <a href="index.html" class="brand" aria-label="STACKLY Home">
+        <img
+            src="image/stackly_logo.webp"
+            alt="STACKLY Logo"
+            class="brand-logo"
+        >
+    </a>
+
+    <div class="secure-label">
+        <span class="secure-dot"></span>
+        SECURE ACCESS
+    </div>
+
+</header>
+
+<div class="back-home-wrapper">
+    <a href="index.html" class="back-home-link">
+        <span class="back-home-arrow">
+            <i class="ri-arrow-left-line"></i>
+        </span>
+        <span>Back to Home</span>
+    </a>
+</div>
+
+    <main class="login-layout">
+
+        <!-- Left Visual Panel -->
+        <section class="welcome-panel">
+            <div class="welcome-content">
+                <div class="eyebrow">
+                    <span></span>
+                    SMARTER WEALTH. STRONGER FUTURE.
+                </div>
+
+                <h1>Where your<br>
+                    <span class="gradient-text">future takes</span><br>
+                    shape.
+                </h1>
+
+                <p class="welcome-description">
+                    Access your investment ecosystem with confidence.
+                    Discover a smarter way to manage assets, track
+                    performance and build lasting value.
+                </p>
+
+                <div class="visual-stats">
+                    <div class="visual-stat">
+                        <i class="ri-shield-check-line"></i>
+                        <div>
+                            <strong>Secure</strong>
+                            <span>Access experience</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-divider"></div>
+
+                    <div class="visual-stat">
+                        <i class="ri-line-chart-line"></i>
+                        <div>
+                            <strong>Smarter</strong>
+                            <span>Investment insights</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visual-orb">
+                <div class="orb-ring ring-one"></div>
+                <div class="orb-ring ring-two"></div>
+                <div class="orb-ring ring-three"></div>
+
+                <div class="orb-center">
+                    <i class="ri-funds-box-line"></i>
+                </div>
+
+                <span class="orb-node node-one"><i class="ri-arrow-up-line"></i></span>
+                <span class="orb-node node-two"><i class="ri-pie-chart-line"></i></span>
+                <span class="orb-node node-three"><i class="ri-shield-star-line"></i></span>
+            </div>
+
+            <div class="welcome-footer">
+                <span>STRATEGY</span>
+                <span class="footer-dot"></span>
+                <span>GROWTH</span>
+                <span class="footer-dot"></span>
+                <span>LONG-TERM VALUE</span>
+            </div>
+        </section>
+
+        <!-- Login Card -->
+        <section class="form-panel">
+            <div class="auth-card-slider" id="authCardSlider">
+            <div class="login-card auth-card" id="loginCard">
+
+                <div class="card-top">
+                    <div class="card-icon">
+                        <i class="ri-user-settings-line"></i>
+                    </div>
+
+                    <span class="card-tag">MEMBER PORTAL</span>
+                </div>
+
+                <div class="form-heading">
+                    <h2>Welcome back<span>.</span></h2>
+                    <p>Sign in to continue to your account.</p>
+                </div>
+
+                <form id="loginForm" novalidate>
+
+                    <!-- Role Selection -->
+                    <label class="field-label">Choose your account</label>
+
+                    <div class="role-selector">
+                        <button type="button" class="role-option active"
+                            data-role="admin" aria-pressed="true">
+                            <span class="role-icon">
+                                <i class="ri-admin-line"></i>
+                            </span>
+
+                            <span class="role-copy">
+                                <strong>Admin</strong>
+                                <small>Manage operations</small>
+                            </span>
+
+                            <span class="role-check">
+                                <i class="ri-check-line"></i>
+                            </span>
+                        </button>
+
+                        <button type="button" class="role-option"
+                            data-role="user" aria-pressed="false">
+                            <span class="role-icon">
+                                <i class="ri-user-3-line"></i>
+                            </span>
+
+                            <span class="role-copy">
+                                <strong>User</strong>
+                                <small>Access your account</small>
+                            </span>
+
+                            <span class="role-check">
+                                <i class="ri-check-line"></i>
+                            </span>
+                        </button>
+                    </div>
+
+                    <input type="hidden" id="selectedRole" value="admin">
+
+                    <!-- Email -->
+                    <div class="input-group">
+                        <label for="email">Email address</label>
+
+                        <div class="input-wrap">
+                            <i class="ri-mail-line input-icon"></i>
+                            <input type="email" id="email"
+                                placeholder="Enter your email address"
+                                autocomplete="username" required>
+                            <span class="input-focus-line"></span>
+                        </div>
+                    </div>
+
+                    <!-- Password -->
+                    <div class="input-group">
+                        <div class="password-label-row">
+                            <label for="password">Password</label>
+                            <button type="button" class="text-button"
+                                id="forgotPasswordBtn">Forgot password?</button>
+                        </div>
+
+                        <div class="input-wrap">
+                            <i class="ri-lock-password-line input-icon"></i>
+                            <input type="password" id="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password" required>
+
+                            <button type="button" class="password-toggle"
+                                id="togglePassword" aria-label="Show password">
+                                <i class="ri-eye-line"></i>
+                            </button>
+
+                            <span class="input-focus-line"></span>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me -->
+                    <div class="form-options">
+                        <label class="remember-option">
+                            <input type="checkbox" id="rememberMe">
+                            <span class="custom-checkbox">
+                                <i class="ri-check-line"></i>
+                            </span>
+                            <span>Remember me</span>
+                        </label>
+
+                        <span class="session-label">
+                            <i class="ri-shield-check-line"></i> Protected session
+                        </span>
+                    </div>
+
+                    <p class="form-message" id="formMessage" role="status"
+                        aria-live="polite"></p>
+
+                    <button type="submit" class="login-button" id="loginButton">
+                        <span class="button-text">Sign In to Dashboard</span>
+                        <i class="ri-arrow-right-line button-arrow"></i>
+                        <span class="button-shine"></span>
+                    </button>
+
+                    <div class="create-account-link">
+                        Don’t have an account?
+                        <button type="button" class="create-account-trigger" id="showSignup">
+                            Create your account
+                        </button>
+                    </div>
+
+                </form>
+
+                <div class="login-bottom">
+                    <span class="bottom-lock"><i class="ri-lock-2-line"></i></span>
+                    Your information deserves a secure experience.
+                </div>
+            </div>
+
+            <!-- Create Account Card -->
+            <div class="signup-card auth-card" id="signupCard" aria-hidden="true">
+                <div class="card-top">
+                    <div class="card-icon">
+                        <i class="ri-user-add-line"></i>
+                    </div>
+                    <span class="card-tag">NEW MEMBER</span>
+                </div>
+
+                <div class="form-heading">
+                    <h2>Create account<span>.</span></h2>
+                    <p>Join STACKLY and start managing your assets.</p>
+                </div>
+
+                <form id="signupForm" novalidate>
+                    <div class="input-group">
+                        <label for="signupName">Full name</label>
+                        <div class="input-wrap">
+                            <i class="ri-user-line input-icon"></i>
+                            <input type="text" id="signupName" placeholder="Enter your full name" autocomplete="name" required>
+                            <span class="input-focus-line"></span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="signupEmail">Email address</label>
+                        <div class="input-wrap">
+                            <i class="ri-mail-line input-icon"></i>
+                            <input type="email" id="signupEmail" placeholder="Enter your email address" autocomplete="email" required>
+                            <span class="input-focus-line"></span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="signupPassword">Create password</label>
+                        <div class="input-wrap">
+                            <i class="ri-lock-password-line input-icon"></i>
+                            <input type="password" id="signupPassword" placeholder="Create a password (8+ characters)" autocomplete="new-password" minlength="8" required>
+                            <span class="input-focus-line"></span>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="confirmPassword">Confirm password</label>
+                        <div class="input-wrap">
+                            <i class="ri-shield-keyhole-line input-icon"></i>
+                            <input type="password" id="confirmPassword" placeholder="Re-enter your password" autocomplete="new-password" minlength="8" required>
+                            <span class="input-focus-line"></span>
+                        </div>
+                    </div>
+
+                    <p class="form-message" id="signupMessage" role="status" aria-live="polite"></p>
+
+                    <button type="submit" class="login-button" id="signupButton">
+                        <span class="button-text">Create Account</span>
+                        <i class="ri-arrow-right-line button-arrow"></i>
+                        <span class="button-shine"></span>
+                    </button>
+
+                    <div class="create-account-link existing-account-link">
+                        Already have an account?
+                        <button type="button" class="create-account-trigger" id="showLogin">
+                            Sign in
+                        </button>
+                    </div>
+                </form>
+
+                <div class="login-bottom">
+                    <span class="bottom-lock"><i class="ri-lock-2-line"></i></span>
+                    Your information deserves a secure experience.
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal-overlay" id="forgotModal" aria-hidden="true">
+        <div class="forgot-modal" role="dialog" aria-modal="true"
+            aria-labelledby="forgotTitle">
+
+            <button type="button" class="modal-close" id="closeForgot"
+                aria-label="Close dialog">
+                <i class="ri-close-line"></i>
+            </button>
+
+            <div class="modal-icon">
+                <i class="ri-lock-password-line"></i>
+            </div>
+
+            <span class="card-tag">ACCOUNT RECOVERY</span>
+            <h2 id="forgotTitle">Forgot your password?</h2>
+
+            <p>Enter your registered email address to request a password reset.</p>
+
+            <form id="forgotForm">
+                <label for="resetEmail">Email address</label>
+
+                <div class="input-wrap">
+                    <i class="ri-mail-line input-icon"></i>
+                    <input type="email" id="resetEmail"
+                        placeholder="you@example.com" required>
+                </div>
+
+                <p class="form-message" id="resetMessage" role="status"
+                    aria-live="polite"></p>
+
+                <button type="submit" class="login-button">
+                    <span>Request Reset Link</span>
+                    <i class="ri-arrow-right-line button-arrow"></i>
+                </button>
+            </form>
+
+            <button type="button" class="back-login" id="backToLogin">
+                <i class="ri-arrow-left-line"></i> Back to login
+            </button>
+        </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="./js/login.js"></script>
+
+    <script>
+        (() => {
+            const slider = document.getElementById("authCardSlider");
+            const showSignupButton = document.getElementById("showSignup");
+            const showLoginButton = document.getElementById("showLogin");
+            const signupCard = document.getElementById("signupCard");
+            const signupForm = document.getElementById("signupForm");
+            const signupMessage = document.getElementById("signupMessage");
+
+            function switchAuthView(showSignup) {
+                slider.classList.toggle("show-signup", showSignup);
+                signupCard.setAttribute("aria-hidden", String(!showSignup));
+                document.getElementById("loginCard").setAttribute("aria-hidden", String(showSignup));
+
+                if (showSignup) {
+                    window.setTimeout(() => document.getElementById("signupName").focus(), 350);
+                } else {
+                    window.setTimeout(() => document.getElementById("email").focus(), 350);
+                }
+            }
+
+            showSignupButton.addEventListener("click", () => switchAuthView(true));
+            showLoginButton.addEventListener("click", () => switchAuthView(false));
+
+            signupForm.addEventListener("submit", (event) => {
+                event.preventDefault();
+                signupMessage.textContent = "";
+                signupMessage.classList.remove("success", "error");
+
+                const name = document.getElementById("signupName").value.trim();
+                const email = document.getElementById("signupEmail").value.trim().toLowerCase();
+                const password = document.getElementById("signupPassword").value;
+                const confirmPassword = document.getElementById("confirmPassword").value;
+
+                if (!name || !email || !password || !confirmPassword) {
+                    signupMessage.textContent = "Please complete all fields.";
+                    signupMessage.classList.add("error");
+                    return;
+                }
+                if (password.length < 8) {
+                    signupMessage.textContent = "Password must be at least 8 characters.";
+                    signupMessage.classList.add("error");
+                    return;
+                }
+                if (password !== confirmPassword) {
+                    signupMessage.textContent = "Passwords do not match. Please try again.";
+                    signupMessage.classList.add("error");
+                    return;
+                }
+
+                // Front-end demo only. Do not use localStorage for real production passwords.
+                const accounts = JSON.parse(localStorage.getItem("stacklyAccounts") || "[]");
+                if (accounts.some(account => account.email === email)) {
+                    signupMessage.textContent = "An account with this email already exists.";
+                    signupMessage.classList.add("error");
+                    return;
+                }
+
+                accounts.push({ name, email, role: "user" });
+                localStorage.setItem("stacklyAccounts", JSON.stringify(accounts));
+                localStorage.setItem("loggedInEmail", email);
+                localStorage.setItem("loggedInName", name);
+
+                signupMessage.textContent = "Account details saved for this demo. You can now sign in.";
+                signupMessage.classList.add("success");
+                signupForm.reset();
+                document.getElementById("email").value = email;
+                document.getElementById("selectedRole").value = "user";
+                document.querySelectorAll(".role-option").forEach(button => {
+                    const isUser = button.dataset.role === "user";
+                    button.classList.toggle("active", isUser);
+                    button.setAttribute("aria-pressed", String(isUser));
+                });
+                window.setTimeout(() => switchAuthView(false), 1200);
+            });
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,512 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STACKLY | Admin Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/admin-dashboard.css">
+</head>
+<body>
+
+<div class="dashboard-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <a href="#dashboard" class="sidebar-brand" id="sidebarBrand">
+            <img src="image/stackly_logo.webp" alt="STACKLY Logo">
+            <span class="brand-indicator"></span>
+        </a>
+
+        <div class="sidebar-label">WORKSPACE</div>
+
+        <nav class="sidebar-nav">
+            <a href="#dashboard" class="menu-link active" data-section="dashboard">
+                <i class="ri-dashboard-3-line"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#portfolio" class="menu-link" data-section="portfolio">
+                <i class="ri-funds-box-line"></i>
+                <span>Asset Portfolio</span>
+            </a>
+
+            <a href="#investments" class="menu-link" data-section="investments">
+                <i class="ri-line-chart-line"></i>
+                <span>Investments</span>
+            </a>
+
+            <a href="#transactions" class="menu-link" data-section="transactions">
+                <i class="ri-exchange-dollar-line"></i>
+                <span>Transactions</span>
+            </a>
+
+            <a href="#reports" class="menu-link" data-section="reports">
+                <i class="ri-file-chart-line"></i>
+                <span>Reports</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <!-- Logged-in email box -->
+            <div class="sidebar-user-card">
+                <div class="user-card-top">
+                    <span class="online-indicator"></span>
+                    <span>ADMIN ACCOUNT</span>
+                    <i class="ri-shield-check-line"></i>
+                </div>
+
+                <div class="sidebar-user-avatar" id="sidebarAvatar">A</div>
+
+                <div class="sidebar-user-name" id="sidebarUserName">Administrator</div>
+                <div class="sidebar-user-email" id="sidebarUserEmail">admin@example.com</div>
+
+                <div class="account-status">
+                    <span></span>
+                    Account active
+                </div>
+            </div>
+
+            <button class="logout-button" id="logoutButton" onclick="window.location.href = 'index.html'">
+                <i class="ri-logout-box-r-line"></i>
+                <span>Logout</span>
+                <i class="ri-arrow-right-up-line logout-arrow"></i>
+            </button>
+
+            <div class="sidebar-footer">
+                <span class="footer-dot"></span>
+                STACKLY ASSET MANAGEMENT
+            </div>
+        </div>
+    </aside>
+
+    <!-- MAIN AREA -->
+    <main class="main-area">
+
+        <!-- TOP NAVBAR -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="icon-button menu-toggle" id="menuToggle" aria-label="Toggle sidebar">
+                    <i class="ri-menu-2-line"></i>
+                </button>
+
+                <div class="welcome-block">
+                    <div class="eyebrow">
+                        <span class="live-dot"></span>
+                        YOUR COMMAND CENTER
+                    </div>
+                    <h1>Welcome back, <span id="welcomeName">Admin</span><span class="wave">✦</span></h1>
+                    <p>Here is what's happening with your assets today.</p>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+                <div class="topbar-date">
+                    <i class="ri-calendar-line"></i>
+                    <span id="currentDate">Loading date...</span>
+                </div>
+
+                <button class="icon-button notification-button" id="notificationButton" aria-label="Notifications" onclick="window.location.href = '404.html'">
+                    <i class="ri-notification-3-line"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="topbar-divider"></div>
+
+                <div class="topbar-profile">
+                    <div class="profile-icon">
+                        <i class="ri-user-3-line"></i>
+                    </div>
+                    <div class="profile-details">
+                        <strong>ADMIN</strong>
+                        <span id="navbarUserEmail">admin@example.com</span>
+                    </div>
+                    <!-- <i class="ri-arrow-down-s-line profile-chevron"></i> -->
+                </div>
+            </div>
+        </header>
+
+        <!-- PAGE CONTENT -->
+        <div class="content-area">
+
+            <!-- DASHBOARD LANDING -->
+            <section class="page-section active" id="dashboardSection">
+
+                <div class="hero-banner">
+                    <div class="hero-orb orb-one"></div>
+                    <div class="hero-orb orb-two"></div>
+                    <div class="hero-grid"></div>
+
+                    <div class="hero-content">
+                        <div class="hero-tag">
+                            <i class="ri-sparkling-2-line"></i>
+                            ASSET INTELLIGENCE OVERVIEW
+                        </div>
+
+                        <h2>Build wealth with<br><span>clarity and confidence.</span></h2>
+
+                        <p>Monitor your portfolio, track investment performance, and make informed asset decisions from one central workspace.</p>
+
+                        <button class="gold-button" id="exploreAssetsButton">
+                            Explore Portfolio
+                            <i class="ri-arrow-right-line"></i>
+                        </button>
+                    </div>
+
+                    <div class="hero-visual">
+                        <div class="orbit orbit-outer"></div>
+                        <div class="orbit orbit-inner"></div>
+
+                        <div class="hero-center-icon">
+                            <i class="ri-funds-line"></i>
+                        </div>
+
+                        <div class="floating-chip chip-top">
+                            <i class="ri-arrow-up-line"></i>
+                            <span>Portfolio growth</span>
+                            <strong>+12.8%</strong>
+                        </div>
+
+                        <div class="floating-chip chip-bottom">
+                            <i class="ri-shield-check-line"></i>
+                            <span>Asset security</span>
+                            <strong>Protected</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- METRIC CARDS -->
+                <div class="section-heading">
+                    <div>
+                        <span class="section-kicker">PERFORMANCE SNAPSHOT</span>
+                        <h2>Portfolio Overview</h2>
+                    </div>
+                    <span class="updated-label">
+                        <i class="ri-refresh-line"></i>
+                        Demo metrics
+                    </span>
+                </div>
+
+                <div class="stats-grid">
+
+                    <article class="stat-card gold-card">
+                        <div class="stat-top">
+                            <div class="stat-icon"><i class="ri-wallet-3-line"></i></div>
+                            <span class="stat-trend"><i class="ri-arrow-up-line"></i> 8.4%</span>
+                        </div>
+                        <span class="stat-label">Total Asset Value</span>
+                        <h3>₹<span class="counter" data-target="24850000">0</span></h3>
+                        <div class="stat-bottom">
+                            <span>Across all managed assets</span>
+                            <i class="ri-arrow-right-up-line"></i>
+                        </div>
+                        <div class="stat-shine"></div>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-icon blue-icon"><i class="ri-pie-chart-2-line"></i></div>
+                            <span class="stat-trend"><i class="ri-arrow-up-line"></i> 5.2%</span>
+                        </div>
+                        <span class="stat-label">Active Investments</span>
+                        <h3><span class="counter" data-target="128">0</span></h3>
+                        <div class="stat-bottom">
+                            <span>Across investment categories</span>
+                            <i class="ri-arrow-right-up-line"></i>
+                        </div>
+                        <div class="stat-shine"></div>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-icon purple-icon"><i class="ri-exchange-funds-line"></i></div>
+                            <span class="stat-trend"><i class="ri-arrow-up-line"></i> 3.6%</span>
+                        </div>
+                        <span class="stat-label">Monthly Returns</span>
+                        <h3>₹<span class="counter" data-target="186400">0</span></h3>
+                        <div class="stat-bottom">
+                            <span>Illustrative monthly return</span>
+                            <i class="ri-arrow-right-up-line"></i>
+                        </div>
+                        <div class="stat-shine"></div>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-icon green-icon"><i class="ri-shield-check-line"></i></div>
+                            <span class="stat-trend neutral-trend">Stable</span>
+                        </div>
+                        <span class="stat-label">Portfolio Health</span>
+                        <h3><span class="counter" data-target="96">0</span><small>%</small></h3>
+                        <div class="health-progress"><span></span></div>
+                        <div class="stat-bottom">
+                            <span>Demo health indicator</span>
+                            <i class="ri-arrow-right-up-line"></i>
+                        </div>
+                        <div class="stat-shine"></div>
+                    </article>
+
+                </div>
+
+                <!-- CHARTS -->
+                <div class="analytics-grid">
+
+                    <article class="panel performance-panel">
+                        <div class="panel-heading">
+                            <div>
+                                <span class="section-kicker">PORTFOLIO ANALYTICS</span>
+                                <h3>Asset Performance</h3>
+                            </div>
+                            <span class="chart-badge"><span></span> Sample data</span>
+                        </div>
+
+                        <div class="chart-summary">
+                            <strong>₹24.85M</strong>
+                            <span><i class="ri-arrow-up-line"></i> 8.4% <small>illustrative change</small></span>
+                        </div>
+
+                        <div class="chart-area">
+                            <div class="chart-y-labels">
+                                <span>25M</span><span>20M</span><span>15M</span><span>10M</span><span>5M</span>
+                            </div>
+                            <div class="chart-canvas">
+                                <div class="chart-grid-lines">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+
+                                <svg class="performance-chart" viewBox="0 0 700 230" preserveAspectRatio="none" role="img" aria-label="Illustrative portfolio performance line chart">
+                                    <defs>
+                                        <linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+                                            <stop offset="0%" stop-color="#c99037" stop-opacity=".32"/>
+                                            <stop offset="100%" stop-color="#c99037" stop-opacity="0"/>
+                                        </linearGradient>
+                                    </defs>
+                                    <path class="chart-area-fill" d="M0,190 C40,170 60,180 95,145 S150,160 190,118 S250,135 290,100 S350,120 390,78 S450,110 490,68 S550,88 590,45 S650,55 700,20 L700,230 L0,230 Z"/>
+                                    <path class="chart-line" d="M0,190 C40,170 60,180 95,145 S150,160 190,118 S250,135 290,100 S350,120 390,78 S450,110 490,68 S550,88 590,45 S650,55 700,20"/>
+                                    <circle class="chart-endpoint" cx="700" cy="20" r="5"/>
+                                </svg>
+
+                                <div class="chart-x-labels">
+                                    <span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="panel allocation-panel">
+                        <div class="panel-heading">
+                            <div>
+                                <span class="section-kicker">ASSET DISTRIBUTION</span>
+                                <h3>Portfolio Allocation</h3>
+                            </div>
+                            <button class="subtle-icon" aria-label="More allocation details">
+                                <i class="ri-more-2-fill" onclick="window.location.href='404.html'"></i>
+                            </button>
+                        </div>
+
+                        <div class="allocation-content">
+                            <div class="donut-chart">
+                                <div class="donut-center">
+                                    <span>Total assets</span>
+                                    <strong>100%</strong>
+                                </div>
+                            </div>
+
+                            <div class="allocation-legend">
+                                <div><span class="legend-dot legend-gold"></span><span>Equities</span><strong>38%</strong></div>
+                                <div><span class="legend-dot legend-blue"></span><span>Fixed income</span><strong>27%</strong></div>
+                                <div><span class="legend-dot legend-purple"></span><span>Real estate</span><strong>20%</strong></div>
+                                <div><span class="legend-dot legend-green"></span><span>Cash & other</span><strong>15%</strong></div>
+                            </div>
+                        </div>
+                        <p class="demo-note">Illustrative allocation only — not live financial data.</p>
+                    </article>
+                </div>
+
+                <!-- ASSETS TABLE -->
+                <article class="panel assets-panel">
+                    <div class="panel-heading assets-heading">
+                        <div>
+                            <span class="section-kicker">YOUR HOLDINGS</span>
+                            <h3>Featured Assets</h3>
+                        </div>
+                        <button class="text-action" 
+        onclick="window.location.href='404.html'">
+    View all assets
+    <i class="ri-arrow-right-line"></i>
+</button>
+                    </div>
+
+                    <div class="table-scroll">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>ASSET</th>
+                                    <th>CATEGORY</th>
+                                    <th>VALUE</th>
+                                    <th>CHANGE</th>
+                                    <th>STATUS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><div class="asset-name"><span class="asset-symbol symbol-gold"><i class="ri-stock-line"></i></span><div><strong>Equity Portfolio</strong><small>AST-1001</small></div></div></td>
+                                    <td>Equities</td><td class="value-cell">₹9,43,000</td>
+                                    <td class="positive">+8.6%</td><td><span class="status-pill status-active">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="asset-name"><span class="asset-symbol symbol-blue"><i class="ri-bank-line"></i></span><div><strong>Fixed Income Fund</strong><small>AST-1002</small></div></div></td>
+                                    <td>Fixed income</td><td class="value-cell">₹6,70,000</td>
+                                    <td class="positive">+4.2%</td><td><span class="status-pill status-active">Active</span></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="asset-name"><span class="asset-symbol symbol-purple"><i class="ri-building-4-line"></i></span><div><strong>Real Estate Trust</strong><small>AST-1003</small></div></div></td>
+                                    <td>Real estate</td><td class="value-cell">₹4,96,000</td>
+                                    <td class="positive">+6.1%</td><td><span class="status-pill status-review">Review</span></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="asset-name"><span class="asset-symbol symbol-green"><i class="ri-safe-2-line"></i></span><div><strong>Reserve Fund</strong><small>AST-1004</small></div></div></td>
+                                    <td>Cash & other</td><td class="value-cell">₹3,72,000</td>
+                                    <td class="neutral-value">+1.8%</td><td><span class="status-pill status-active">Active</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <!-- BOTTOM PANELS -->
+                <div class="bottom-grid">
+                    <article class="panel activity-panel">
+                        <div class="panel-heading">
+                            <div><span class="section-kicker">LATEST UPDATES</span><h3>Recent Activity</h3></div>
+                            <i class="ri-history-line panel-heading-icon"></i>
+                        </div>
+
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <span class="activity-icon activity-gold"><i class="ri-add-circle-line"></i></span>
+                                <div><strong>New asset recorded</strong><p>Equity portfolio added to holdings</p><small>Today · 10:42 AM</small></div>
+                                <span class="activity-status">Logged</span>
+                            </div>
+                            <div class="activity-item">
+                                <span class="activity-icon activity-blue"><i class="ri-file-chart-line"></i></span>
+                                <div><strong>Portfolio report prepared</strong><p>Monthly overview is ready to review</p><small>Yesterday · 4:15 PM</small></div>
+                                <span class="activity-status">Ready</span>
+                            </div>
+                            <div class="activity-item">
+                                <span class="activity-icon activity-green"><i class="ri-shield-check-line"></i></span>
+                                <div><strong>Security review completed</strong><p>Demo account review recorded</p><small>Yesterday · 11:30 AM</small></div>
+                                <span class="activity-status">Complete</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="panel quick-panel">
+                        <div class="panel-heading">
+                            <div><span class="section-kicker">WORKSPACE TOOLS</span><h3>Quick Actions</h3></div>
+                            <i class="ri-flashlight-line panel-heading-icon"></i>
+                        </div>
+
+                        <button class="quick-action" data-go="portfolio">
+                            <span class="quick-action-icon"><i class="ri-add-line"></i></span>
+                            <span><strong>Review Asset Portfolio</strong><small>Explore your recorded holdings</small></span>
+                            <i class="ri-arrow-right-up-line quick-arrow" onclick="window.location.href='404.html'"></i>
+                        </button>
+
+                        <button class="quick-action" data-go="transactions">
+                            <span class="quick-action-icon blue-quick"><i class="ri-exchange-funds-line"></i></span>
+                            <span><strong>Review Transactions</strong><small>View sample transaction records</small></span>
+                            <i class="ri-arrow-right-up-line quick-arrow" onclick="window.location.href='404.html'"></i>
+                        </button>
+
+                        <button class="quick-action" data-go="reports">
+                            <span class="quick-action-icon purple-quick"><i class="ri-file-download-line"></i></span>
+                            <span><strong>Open Reports</strong><small>Review performance summaries</small></span>
+                            <i class="ri-arrow-right-up-line quick-arrow" onclick="window.location.href='404.html'"></i>
+                        </button>
+                    </article>
+                </div>
+            </section>
+
+            <!-- OTHER MENU PAGES -->
+            <section class="page-section subpage-section" id="portfolioSection">
+                <div class="subpage-banner">
+                    <span class="section-kicker">ASSET MANAGEMENT</span>
+                    <h2>Asset Portfolio</h2>
+                    <p>Review the sample assets tracked in your STACKLY workspace.</p>
+                </div>
+                <article class="panel">
+                    <div class="panel-heading"><div><h3>Portfolio Holdings</h3><p class="panel-subtitle">Sample records for UI demonstration</p></div></div>
+                    <div class="table-scroll">
+                        <table>
+                            <thead><tr><th>ASSET ID</th><th>ASSET NAME</th><th>CATEGORY</th><th>VALUE</th><th>STATUS</th></tr></thead>
+                            <tbody>
+                                <tr><td>AST-1001</td><td>Equity Portfolio</td><td>Equities</td><td>₹9,43,000</td><td><span class="status-pill status-active">Active</span></td></tr>
+                                <tr><td>AST-1002</td><td>Fixed Income Fund</td><td>Fixed income</td><td>₹6,70,000</td><td><span class="status-pill status-active">Active</span></td></tr>
+                                <tr><td>AST-1003</td><td>Real Estate Trust</td><td>Real estate</td><td>₹4,96,000</td><td><span class="status-pill status-review">Review</span></td></tr>
+                                <tr><td>AST-1004</td><td>Reserve Fund</td><td>Cash & other</td><td>₹3,72,000</td><td><span class="status-pill status-active">Active</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+
+            <section class="page-section subpage-section" id="investmentsSection">
+                <div class="subpage-banner"><span class="section-kicker">GROWTH & PERFORMANCE</span><h2>Investments</h2><p>Monitor investment categories and illustrative portfolio performance.</p></div>
+                <div class="subpage-cards">
+                    <article class="panel mini-info-card"><i class="ri-stock-line"></i><h3>Equities</h3><strong>38%</strong><p>Sample portfolio allocation</p></article>
+                    <article class="panel mini-info-card"><i class="ri-bank-line"></i><h3>Fixed Income</h3><strong>27%</strong><p>Sample portfolio allocation</p></article>
+                    <article class="panel mini-info-card"><i class="ri-building-4-line"></i><h3>Real Estate</h3><strong>20%</strong><p>Sample portfolio allocation</p></article>
+                </div>
+            </section>
+
+            <section class="page-section subpage-section" id="transactionsSection">
+                <div class="subpage-banner"><span class="section-kicker">ACCOUNT ACTIVITY</span><h2>Transactions</h2><p>Review illustrative account activity and recorded updates.</p></div>
+                <article class="panel">
+                    <div class="panel-heading"><div><h3>Transaction History</h3><p class="panel-subtitle">Demonstration records — not actual transactions</p></div></div>
+                    <div class="table-scroll">
+                        <table>
+                            <thead><tr><th>REFERENCE</th><th>DESCRIPTION</th><th>DATE</th><th>AMOUNT</th><th>STATUS</th></tr></thead>
+                            <tbody>
+                                <tr><td>TXN-2301</td><td>Asset allocation update</td><td>20 Oct 2026</td><td>₹1,25,000</td><td><span class="status-pill status-active">Recorded</span></td></tr>
+                                <tr><td>TXN-2302</td><td>Portfolio review</td><td>19 Oct 2026</td><td>—</td><td><span class="status-pill status-review">Reviewed</span></td></tr>
+                                <tr><td>TXN-2303</td><td>Monthly report prepared</td><td>18 Oct 2026</td><td>—</td><td><span class="status-pill status-active">Complete</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+
+            <section class="page-section subpage-section" id="reportsSection">
+                <div class="subpage-banner"><span class="section-kicker">INSIGHTS & REPORTING</span><h2>Reports</h2><p>Access the sample portfolio summaries available in this demo.</p></div>
+                <div class="subpage-cards">
+                    <article class="panel report-card"><i class="ri-file-chart-line"></i><h3>Portfolio Overview</h3><p>Summary of sample holdings and allocation.</p><span>DEMO REPORT</span></article>
+                    <article class="panel report-card"><i class="ri-line-chart-line"></i><h3>Performance Summary</h3><p>Illustrative performance indicators.</p><span>DEMO REPORT</span></article>
+                    <article class="panel report-card"><i class="ri-shield-check-line"></i><h3>Asset Review</h3><p>Sample asset status and review information.</p><span>DEMO REPORT</span></article>
+                </div>
+            </section>
+
+            <footer class="main-footer">
+                <span>© <span id="footerYear"></span> STACKLY Asset Management</span>
+                <span><i class="ri-shield-check-line"></i> Asset intelligence workspace</span>
+            </footer>
+
+        </div>
+    </main>
+</div>
+
+<div class="toast" id="toast" role="status">
+    <i class="ri-information-line"></i>
+    <span id="toastMessage">This is a demo notification.</span>
+</div>
+
+<script src="./js/admin-dashboard.js"></script>
+</body>
+</html>

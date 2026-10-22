@@ -1,0 +1,678 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#07111f">
+    <title>STACKLY | User Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/user-dashboard.css">
+</head>
+
+<body>
+<div class="app-shell">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <a href="#dashboard" class="brand" id="brandHome">
+            <img src="image/stackly_logo.webp" alt="STACKLY Logo">
+        </a>
+
+        <div class="sidebar-label">WORKSPACE</div>
+
+        <nav class="side-menu" aria-label="User navigation">
+            <button class="menu-link active" data-section="dashboardSection">
+                <i class="ri-dashboard-3-line"></i>
+                <span>Dashboard</span>
+            </button>
+
+            <button class="menu-link" data-section="assetsSection">
+                <i class="ri-safe-2-line"></i>
+                <span>My Assets</span>
+            </button>
+
+            <button class="menu-link" data-section="investmentsSection">
+                <i class="ri-line-chart-line"></i>
+                <span>My Investments</span>
+            </button>
+
+            <button class="menu-link" data-section="transactionsSection">
+                <i class="ri-exchange-funds-line"></i>
+                <span>Transactions</span>
+            </button>
+
+            <button class="menu-link" data-section="reportsSection">
+                <i class="ri-file-chart-line"></i>
+                <span>My Reports</span>
+            </button>
+
+            <button class="menu-link" data-section="profileSection">
+                <i class="ri-user-settings-line"></i>
+                <span>My Profile</span>
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-user-card">
+                <span class="online-indicator"></span>
+                <div class="user-avatar" id="sidebarAvatar">U</div>
+                <div class="sidebar-user-info">
+                    <strong id="sidebarUserName">User Account</strong>
+                    <span id="sidebarEmail">user@example.com</span>
+                </div>
+                <i class="ri-shining-2-line user-shine"></i>
+            </div>
+
+            <button class="logout-btn" id="logoutBtn">
+                <i class="ri-logout-box-r-line"></i>
+                <span>Logout</span>
+            </button>
+
+            <p class="sidebar-footer">STACKLY FINANCIAL PLATFORM</p>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- TOP NAVBAR -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="icon-btn mobile-menu-btn" id="menuToggle"
+                        aria-label="Toggle sidebar">
+                    <i class="ri-menu-2-line"></i>
+                </button>
+
+                <div>
+                    <p class="eyebrow">PERSONAL WORKSPACE</p>
+                    <h1 id="welcomeHeading">Welcome back!</h1>
+                    <p class="topbar-subtitle">Here's your financial overview.</p>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+                <button class="icon-btn notification-btn" id="notificationBtn"
+                        aria-label="Notifications">
+                    <i class="ri-notification-3-line"></i>
+                    <span class="notification-dot"></span>
+                </button>
+
+                <button class="profile-trigger" id="profileTrigger">
+                    <div class="profile-avatar" id="topAvatar">U</div>
+                    <div class="profile-meta">
+                        <strong id="topUserName">User</strong>
+                        <span>USER ACCOUNT</span>
+                    </div>
+                    <i class="ri-arrow-down-s-line"></i>
+                </button>
+            </div>
+        </header>
+
+        <div class="page-content">
+
+            <!-- DASHBOARD -->
+            <section class="page-section active" id="dashboardSection">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">YOUR FINANCIAL OVERVIEW</p>
+                        <h2>Portfolio Dashboard</h2>
+                        <p class="muted">Monitor your assets and investment performance.</p>
+                    </div>
+                    <div class="date-chip">
+                        <i class="ri-calendar-line"></i>
+                        <span id="currentDate"></span>
+                    </div>
+                </div>
+
+                <!-- HERO -->
+                <div class="portfolio-hero">
+                    <div class="hero-orb orb-one"></div>
+                    <div class="hero-orb orb-two"></div>
+
+                    <div class="hero-content">
+                        <div class="hero-label">
+                            <span class="hero-status-dot"></span>
+                            TOTAL PORTFOLIO VALUE
+                        </div>
+
+                        <h2>₹<span class="counter" data-value="1248500"
+                                data-format="money">0</span></h2>
+
+                        <p class="hero-description">
+                            Your portfolio at a glance. Keep track of your
+                            assets and financial progress.
+                        </p>
+
+                        <div class="hero-change">
+                            <i class="ri-arrow-up-line"></i>
+                            <strong>+8.42%</strong>
+                            <span>sample return this year</span>
+                        </div>
+                    </div>
+
+                    <div class="hero-graphic">
+                        <div class="graphic-ring ring-one"></div>
+                        <div class="graphic-ring ring-two"></div>
+                        <div class="graphic-center">
+                            <i class="ri-funds-box-line"></i>
+                        </div>
+                        <span class="graphic-star star-one">✦</span>
+                        <span class="graphic-star star-two">✧</span>
+                    </div>
+                </div>
+
+                <!-- STATS -->
+                <div class="stats-grid">
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-icon gold">
+                                <i class="ri-safe-2-line"></i>
+                            </div>
+                            <span class="stat-trend positive">+6.8%</span>
+                        </div>
+                        <p>Total Assets</p>
+                        <h3>₹<span class="counter" data-value="1248500"
+                                  data-format="money">0</span></h3>
+                        <span class="stat-foot">Across your portfolio</span>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-icon blue">
+                                <i class="ri-funds-line"></i>
+                            </div>
+                            <span class="stat-trend positive">+8.42%</span>
+                        </div>
+                        <p>Investment Returns</p>
+                        <h3>₹<span class="counter" data-value="96850"
+                                  data-format="money">0</span></h3>
+                        <span class="stat-foot">Illustrative gain</span>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-icon purple">
+                                <i class="ri-pie-chart-2-line"></i>
+                            </div>
+                            <span class="stat-trend neutral">4 classes</span>
+                        </div>
+                        <p>Asset Categories</p>
+                        <h3><span class="counter" data-value="4">0</span></h3>
+                        <span class="stat-foot">Diversified portfolio</span>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-top">
+                            <div class="stat-icon green">
+                                <i class="ri-exchange-dollar-line"></i>
+                            </div>
+                            <span class="stat-trend positive">Active</span>
+                        </div>
+                        <p>Transactions</p>
+                        <h3><span class="counter" data-value="28">0</span></h3>
+                        <span class="stat-foot">Sample transaction count</span>
+                    </article>
+                </div>
+
+                <!-- CHARTS -->
+                <div class="dashboard-grid">
+                    <article class="panel performance-panel">
+                        <div class="panel-heading">
+                            <div>
+                                <h3>Portfolio Performance</h3>
+                                <p class="muted">Illustrative portfolio growth</p>
+                            </div>
+
+                            <select id="chartRange" class="small-select"
+                                    aria-label="Chart range">
+                                <option value="6">Last 6 months</option>
+                                <option value="12">Last 12 months</option>
+                            </select>
+                        </div>
+
+                        <div class="chart-legend">
+                            <span><i class="legend-dot"></i> Portfolio value</span>
+                            <span class="legend-note">DEMO DATA</span>
+                        </div>
+
+                        <div class="chart-wrap">
+                            <svg class="performance-chart" viewBox="0 0 700 260"
+                                 preserveAspectRatio="none"
+                                 role="img" aria-label="Illustrative portfolio performance chart">
+                                <defs>
+                                    <linearGradient id="userChartFill" x1="0" y1="0"
+                                                    x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#c99037"
+                                              stop-opacity=".32"/>
+                                        <stop offset="100%" stop-color="#c99037"
+                                              stop-opacity="0"/>
+                                    </linearGradient>
+                                </defs>
+
+                                <g class="chart-grid">
+                                    <line x1="35" y1="35" x2="680" y2="35"/>
+                                    <line x1="35" y1="85" x2="680" y2="85"/>
+                                    <line x1="35" y1="135" x2="680" y2="135"/>
+                                    <line x1="35" y1="185" x2="680" y2="185"/>
+                                    <line x1="35" y1="225" x2="680" y2="225"/>
+                                </g>
+
+                                <path class="chart-area-fill"
+                                      d="M35 205 C75 192 80 164 130 177
+                                      S190 130 230 145 S290 108 330 125
+                                      S390 76 430 102 S490 58 530 83
+                                      S600 37 680 48 L680 225 L35 225 Z"/>
+
+                                <path class="chart-line"
+                                      d="M35 205 C75 192 80 164 130 177
+                                      S190 130 230 145 S290 108 330 125
+                                      S390 76 430 102 S490 58 530 83
+                                      S600 37 680 48"/>
+                                <circle class="chart-point" cx="680" cy="48" r="5"/>
+                            </svg>
+                        </div>
+
+                        <div class="chart-months" id="chartMonths">
+                            <span>May</span><span>Jun</span><span>Jul</span>
+                            <span>Aug</span><span>Sep</span><span>Oct</span>
+                        </div>
+                    </article>
+
+                    <article class="panel allocation-panel">
+                        <div class="panel-heading">
+                            <div>
+                                <h3>Asset Allocation</h3>
+                                <p class="muted">Illustrative distribution</p>
+                            </div>
+                            <i class="ri-more-2-fill panel-more" onclick="window.location.href = '404.html'"></i>
+                        </div>
+
+                        <div class="donut-wrap">
+                            <div class="donut-chart">
+                                <div class="donut-center">
+                                    <span>PORTFOLIO</span>
+                                    <strong>100%</strong>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="allocation-list">
+                            <div class="allocation-item">
+                                <span class="allocation-name">
+                                    <i class="allocation-dot dot-gold"></i> Equity
+                                </span>
+                                <strong>40%</strong>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="allocation-name">
+                                    <i class="allocation-dot dot-blue"></i> Bonds
+                                </span>
+                                <strong>25%</strong>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="allocation-name">
+                                    <i class="allocation-dot dot-purple"></i> Real Estate
+                                </span>
+                                <strong>20%</strong>
+                            </div>
+                            <div class="allocation-item">
+                                <span class="allocation-name">
+                                    <i class="allocation-dot dot-green"></i> Cash
+                                </span>
+                                <strong>15%</strong>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- ASSETS TABLE -->
+                <article class="panel table-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>My Assets</h3>
+                            <p class="muted">A quick view of your holdings</p>
+                        </div>
+                        <button class="text-action" data-open-section="assetsSection">
+                            View all <i class="ri-arrow-right-line"></i>
+                        </button>
+                    </div>
+
+                    <div class="table-scroll">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th>ASSET</th>
+                                <th>CATEGORY</th>
+                                <th>VALUE</th>
+                                <th>ALLOCATION</th>
+                                <th>STATUS</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><span class="asset-symbol symbol-gold">EQ</span>
+                                    <span class="asset-name">Equity Portfolio</span></td>
+                                <td>Equity</td>
+                                <td>₹4,99,400</td>
+                                <td>40%</td>
+                                <td><span class="status-pill status-active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="asset-symbol symbol-blue">BD</span>
+                                    <span class="asset-name">Bond Holdings</span></td>
+                                <td>Fixed Income</td>
+                                <td>₹3,12,125</td>
+                                <td>25%</td>
+                                <td><span class="status-pill status-active">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="asset-symbol symbol-purple">RE</span>
+                                    <span class="asset-name">Real Estate Fund</span></td>
+                                <td>Property</td>
+                                <td>₹2,49,700</td>
+                                <td>20%</td>
+                                <td><span class="status-pill status-review">Review</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="asset-symbol symbol-green">CS</span>
+                                    <span class="asset-name">Cash Reserve</span></td>
+                                <td>Cash</td>
+                                <td>₹1,87,275</td>
+                                <td>15%</td>
+                                <td><span class="status-pill status-active">Active</span></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <!-- ACTIVITY AND QUICK ACTIONS -->
+                <div class="dashboard-grid bottom-grid">
+                    <article class="panel activity-panel">
+                        <div class="panel-heading">
+                            <div>
+                                <h3>Recent Activity</h3>
+                                <p class="muted">Sample account activity</p>
+                            </div>
+                            <button class="text-action"
+                                    data-open-section="transactionsSection">View all</button>
+                        </div>
+
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon activity-gold">
+                                    <i class="ri-arrow-down-circle-line"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <strong>Investment contribution</strong>
+                                    <span>Portfolio contribution</span>
+                                </div>
+                                <div class="activity-amount">
+                                    <strong>+₹15,000</strong>
+                                    <span>18 Oct 2026</span>
+                                </div>
+                            </div>
+
+                            <div class="activity-item">
+                                <div class="activity-icon activity-blue">
+                                    <i class="ri-exchange-line"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <strong>Bond allocation</strong>
+                                    <span>Asset reallocation</span>
+                                </div>
+                                <div class="activity-amount">
+                                    <strong>₹8,500</strong>
+                                    <span>15 Oct 2026</span>
+                                </div>
+                            </div>
+
+                            <div class="activity-item">
+                                <div class="activity-icon activity-green">
+                                    <i class="ri-check-double-line"></i>
+                                </div>
+                                <div class="activity-info">
+                                    <strong>Account review</strong>
+                                    <span>Profile information checked</span>
+                                </div>
+                                <div class="activity-amount">
+                                    <strong>Completed</strong>
+                                    <span>12 Oct 2026</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="panel quick-panel">
+                        <div class="panel-heading">
+                            <div>
+                                <h3>Quick Access</h3>
+                                <p class="muted">Navigate to your workspace</p>
+                            </div>
+                        </div>
+
+                        <button class="quick-action" data-open-section="assetsSection">
+                            <span class="quick-icon"><i class="ri-safe-2-line"></i></span>
+                            <span><strong>Explore My Assets</strong>
+                                  <small>Review your holdings</small></span>
+                            <i class="ri-arrow-right-up-line quick-arrow"></i>
+                        </button>
+
+                        <button class="quick-action" data-open-section="reportsSection">
+                            <span class="quick-icon"><i class="ri-file-chart-line"></i></span>
+                            <span><strong>View Reports</strong>
+                                  <small>Portfolio summaries</small></span>
+                            <i class="ri-arrow-right-up-line quick-arrow"></i>
+                        </button>
+
+                        <button class="quick-action" data-open-section="profileSection">
+                            <span class="quick-icon"><i class="ri-user-settings-line"></i></span>
+                            <span><strong>Account Settings</strong>
+                                  <small>View your profile</small></span>
+                            <i class="ri-arrow-right-up-line quick-arrow"></i>
+                        </button>
+                    </article>
+                </div>
+            </section>
+
+            <!-- MY ASSETS -->
+            <section class="page-section" id="assetsSection">
+                <div class="section-heading">
+                    <div>
+                        <p class="eyebrow">PORTFOLIO MANAGEMENT</p>
+                        <h2>My Assets</h2>
+                        <p class="muted">View your current asset allocation.</p>
+                    </div>
+                    <span class="date-chip"><i class="ri-shield-check-line"></i> Sample portfolio</span>
+                </div>
+
+                <div class="stats-grid compact-stats">
+                    <article class="stat-card">
+                        <div class="stat-icon gold"><i class="ri-safe-2-line"></i></div>
+                        <p>Total asset value</p><h3>₹12,48,500</h3>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon blue"><i class="ri-stack-line"></i></div>
+                        <p>Asset classes</p><h3>04</h3>
+                    </article>
+                    <article class="stat-card">
+                        <div class="stat-icon green"><i class="ri-pulse-line"></i></div>
+                        <p>Portfolio status</p><h3>Active</h3>
+                    </article>
+                </div>
+
+                <article class="panel table-panel">
+                    <div class="panel-heading">
+                        <div><h3>Asset Holdings</h3>
+                            <p class="muted">Illustrative holdings, not live account data</p></div>
+                    </div>
+                    <div class="table-scroll">
+                        <table>
+                            <thead><tr><th>ASSET</th><th>CATEGORY</th><th>VALUE</th><th>SHARE</th><th>STATUS</th></tr></thead>
+                            <tbody>
+                            <tr><td>Equity Portfolio</td><td>Equity</td><td>₹4,99,400</td><td>40%</td><td><span class="status-pill status-active">Active</span></td></tr>
+                            <tr><td>Bond Holdings</td><td>Fixed Income</td><td>₹3,12,125</td><td>25%</td><td><span class="status-pill status-active">Active</span></td></tr>
+                            <tr><td>Real Estate Fund</td><td>Property</td><td>₹2,49,700</td><td>20%</td><td><span class="status-pill status-review">Review</span></td></tr>
+                            <tr><td>Cash Reserve</td><td>Cash</td><td>₹1,87,275</td><td>15%</td><td><span class="status-pill status-active">Active</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+
+            <!-- INVESTMENTS -->
+            <section class="page-section" id="investmentsSection">
+                <div class="section-heading">
+                    <div><p class="eyebrow">GROWTH & PERFORMANCE</p>
+                        <h2>My Investments</h2>
+                        <p class="muted">Review your investment overview and sample returns.</p></div>
+                </div>
+
+                <div class="stats-grid">
+                    <article class="stat-card"><div class="stat-icon gold"><i class="ri-funds-line"></i></div><p>Invested amount</p><h3>₹11,51,650</h3><span class="stat-foot">Sample principal</span></article>
+                    <article class="stat-card"><div class="stat-icon green"><i class="ri-arrow-up-circle-line"></i></div><p>Illustrative gains</p><h3>₹96,850</h3><span class="stat-foot">Not a guaranteed return</span></article>
+                    <article class="stat-card"><div class="stat-icon blue"><i class="ri-calendar-check-line"></i></div><p>Investment period</p><h3>12 Months</h3><span class="stat-foot">Example timeframe</span></article>
+                </div>
+
+                <article class="panel table-panel">
+                    <div class="panel-heading"><div><h3>Investment Summary</h3><p class="muted">Example investment records</p></div></div>
+                    <div class="table-scroll">
+                        <table>
+                            <thead><tr><th>INVESTMENT</th><th>TYPE</th><th>AMOUNT</th><th>PERIOD</th><th>STATUS</th></tr></thead>
+                            <tbody>
+                            <tr><td>Equity Portfolio</td><td>Equity</td><td>₹4,99,400</td><td>Long term</td><td><span class="status-pill status-active">Active</span></td></tr>
+                            <tr><td>Bond Holdings</td><td>Fixed Income</td><td>₹3,12,125</td><td>Medium term</td><td><span class="status-pill status-active">Active</span></td></tr>
+                            <tr><td>Real Estate Fund</td><td>Property</td><td>₹2,49,700</td><td>Long term</td><td><span class="status-pill status-review">Review</span></td></tr>
+                            <tr><td>Cash Reserve</td><td>Cash</td><td>₹1,87,275</td><td>Available</td><td><span class="status-pill status-active">Active</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+
+            <!-- TRANSACTIONS -->
+            <section class="page-section" id="transactionsSection">
+                <div class="section-heading">
+                    <div><p class="eyebrow">ACCOUNT HISTORY</p>
+                        <h2>Transactions</h2>
+                        <p class="muted">Review recent account activity.</p></div>
+                </div>
+
+                <article class="panel table-panel">
+                    <div class="panel-heading"><div><h3>Recent Transactions</h3><p class="muted">All records below are demo examples.</p></div></div>
+                    <div class="table-scroll">
+                        <table>
+                            <thead><tr><th>REFERENCE</th><th>DESCRIPTION</th><th>DATE</th><th>AMOUNT</th><th>STATUS</th></tr></thead>
+                            <tbody>
+                            <tr><td>#STK-1028</td><td>Investment contribution</td><td>18 Oct 2026</td><td class="positive-text">+₹15,000</td><td><span class="status-pill status-active">Completed</span></td></tr>
+                            <tr><td>#STK-1027</td><td>Bond allocation</td><td>15 Oct 2026</td><td>₹8,500</td><td><span class="status-pill status-active">Completed</span></td></tr>
+                            <tr><td>#STK-1026</td><td>Portfolio review</td><td>12 Oct 2026</td><td>—</td><td><span class="status-pill status-active">Completed</span></td></tr>
+                            <tr><td>#STK-1025</td><td>Asset update</td><td>08 Oct 2026</td><td>—</td><td><span class="status-pill status-review">Reviewed</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+            </section>
+
+            <!-- REPORTS -->
+            <section class="page-section" id="reportsSection">
+                <div class="section-heading">
+                    <div><p class="eyebrow">PORTFOLIO INSIGHTS</p>
+                        <h2>My Reports</h2>
+                        <p class="muted">Explore summary reports for your portfolio.</p></div>
+                </div>
+
+                <div class="report-grid">
+                    <article class="report-card">
+                        <div class="report-icon"><i class="ri-pie-chart-line"></i></div>
+                        <p class="eyebrow">PORTFOLIO</p>
+                        <h3>Asset Allocation</h3>
+                        <p>Summary of your sample asset categories and their percentages.</p>
+                        <button class="outline-btn" data-open-section="assetsSection">View assets <i class="ri-arrow-right-line"></i></button>
+                    </article>
+                    <article class="report-card">
+                        <div class="report-icon"><i class="ri-line-chart-line"></i></div>
+                        <p class="eyebrow">PERFORMANCE</p>
+                        <h3>Investment Overview</h3>
+                        <p>Illustrative invested amount and portfolio growth overview.</p>
+                        <button class="outline-btn" data-open-section="investmentsSection">View investments <i class="ri-arrow-right-line"></i></button>
+                    </article>
+                    <article class="report-card">
+                        <div class="report-icon"><i class="ri-file-list-3-line"></i></div>
+                        <p class="eyebrow">ACCOUNT</p>
+                        <h3>Transaction Summary</h3>
+                        <p>View example transactions and their displayed statuses.</p>
+                        <button class="outline-btn" data-open-section="transactionsSection">View transactions <i class="ri-arrow-right-line"></i></button>
+                    </article>
+                </div>
+            </section>
+
+            <!-- PROFILE -->
+            <section class="page-section" id="profileSection">
+                <div class="section-heading">
+                    <div><p class="eyebrow">PERSONAL SETTINGS</p>
+                        <h2>My Profile</h2>
+                        <p class="muted">Your account information.</p></div>
+                </div>
+
+                <article class="panel profile-panel">
+                    <div class="profile-banner">
+                        <div class="profile-avatar profile-avatar-large" id="largeAvatar">U</div>
+                        <div>
+                            <p class="eyebrow">STACKLY USER</p>
+                            <h3 id="profileDisplayName">User Account</h3>
+                            <p id="profileEmail">user@example.com</p>
+                        </div>
+                    </div>
+
+                    <div class="profile-details">
+                        <div class="detail-field">
+                            <label>Display name</label>
+                            <input type="text" id="profileNameInput" placeholder="Your name">
+                        </div>
+                        <div class="detail-field">
+                            <label>Email address</label>
+                            <input type="email" id="profileEmailInput" readonly>
+                        </div>
+                        <div class="detail-field">
+                            <label>Account type</label>
+                            <input type="text" value="User Account" readonly>
+                        </div>
+                        <div class="detail-field">
+                            <label>Platform</label>
+                            <input type="text" value="STACKLY Asset Management" readonly>
+                        </div>
+                    </div>
+
+                    <div class="profile-actions">
+                        <button class="primary-btn" id="saveProfileBtn">
+                            <i class="ri-save-line"></i> Save display name
+                        </button>
+                        <span class="muted profile-note">Demo profile settings only.</span>
+                    </div>
+                </article>
+            </section>
+
+            <footer class="main-footer">
+                <span>© <span id="footerYear"></span> STACKLY Asset Management</span>
+                <span>Secure workspace · Demo interface</span>
+            </footer>
+        </div>
+    </main>
+</div>
+
+<!-- MOBILE OVERLAY -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- TOAST -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+    <i class="ri-checkbox-circle-line"></i>
+    <span id="toastMessage">Done</span>
+</div>
+<script src="./js/user-dashboard.js" defer></script>
+</body>
+</html>
