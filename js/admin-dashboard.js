@@ -57,6 +57,16 @@ if (settingsUserName) settingsUserName.textContent = displayName;
 if (settingsUserEmail) settingsUserEmail.textContent = loginEmail;
 
 
+const mobileNavLogo = document.getElementById("mobileNavLogo");
+
+if (mobileNavLogo) {
+    mobileNavLogo.addEventListener("click", event => {
+        event.preventDefault();
+        showSection("dashboard");
+    });
+}
+
+
     /* =====================================
        CURRENT DATE
     ===================================== */
@@ -303,13 +313,3 @@ if (sidebar && menuToggle) {
             : "dashboard"
     );
 });
-
-const loginEmail = localStorage.getItem("loggedInEmail") || "";
-
-if (sidebarUserEmail) {
-    sidebarUserEmail.textContent = loginEmail;
-}
-
-if (navbarUserEmail) {
-    navbarUserEmail.textContent = loginEmail;
-}

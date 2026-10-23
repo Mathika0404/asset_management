@@ -90,48 +90,94 @@
     <!-- MAIN AREA -->
     <main class="main-area">
 
-        <!-- TOP NAVBAR -->
-        <header class="topbar">
-            <div class="topbar-left">
-                <button class="icon-button menu-toggle" id="menuToggle" aria-label="Toggle sidebar">
-                    <i class="ri-menu-2-line"></i>
-                </button>
 
-                <div class="welcome-block">
-                    <div class="eyebrow">
-                        <span class="live-dot"></span>
-                        YOUR COMMAND CENTER
-                    </div>
-                    <h1>Welcome back, <span id="welcomeName">Admin</span><span class="wave">✦</span></h1>
-                    <p>Here is what's happening with your assets today.</p>
-                </div>
+<!-- TOP NAVBAR -->
+<header class="topbar">
+
+    <!-- TOPBAR LEFT -->
+    <div class="topbar-left">
+
+        <!-- MOBILE LOGO -->
+        <a href="#dashboard"
+           class="mobile-nav-logo"
+           id="mobileNavLogo"
+           aria-label="Go to Admin Dashboard">
+
+            <img src="image/stackly_logo.webp"
+                 alt="STACKLY Logo">
+        </a>
+
+        <!-- MOBILE MENU TOGGLE -->
+        <button class="icon-button menu-toggle"
+                id="menuToggle"
+                aria-label="Toggle sidebar"
+                aria-expanded="false">
+
+            <i class="ri-menu-2-line"></i>
+        </button>
+
+        <!-- WELCOME CONTENT -->
+        <div class="welcome-block">
+
+            <div class="eyebrow">
+                <span class="live-dot"></span>
+                YOUR COMMAND CENTER
             </div>
 
-            <div class="topbar-right">
-                <div class="topbar-date">
-                    <i class="ri-calendar-line"></i>
-                    <span id="currentDate">Loading date...</span>
-                </div>
+            <h1>
+                Welcome back,
+                <span id="welcomeName">Admin</span>
+                <span class="wave">✦</span>
+            </h1>
 
-                <button class="icon-button notification-button" id="notificationButton" aria-label="Notifications" onclick="window.location.href = '404.html'">
-                    <i class="ri-notification-3-line"></i>
-                    <span class="notification-dot"></span>
-                </button>
+            <p>
+                Here is what's happening with your assets today.
+            </p>
 
-                <div class="topbar-divider"></div>
+        </div>
 
-                <div class="topbar-profile">
-                    <div class="profile-icon">
-                        <i class="ri-user-3-line"></i>
-                    </div>
-                    <div class="profile-details">
-                        <strong>ADMIN</strong>
-                        <span id="navbarUserEmail">admin@example.com</span>
-                    </div>
-                    <!-- <i class="ri-arrow-down-s-line profile-chevron"></i> -->
-                </div>
+    </div>
+
+    <!-- TOPBAR RIGHT -->
+    <div class="topbar-right">
+
+        <!-- CURRENT DATE -->
+        <div class="topbar-date">
+            <i class="ri-calendar-line"></i>
+            <span id="currentDate">Loading date...</span>
+        </div>
+
+        <!-- NOTIFICATION -->
+        <button class="icon-button notification-button"
+                id="notificationButton"
+                aria-label="Notifications"
+                onclick="window.location.href='404.html'">
+
+            <i class="ri-notification-3-line"></i>
+            <span class="notification-dot"></span>
+
+        </button>
+
+        <div class="topbar-divider"></div>
+
+        <!-- ADMIN PROFILE -->
+        <div class="topbar-profile">
+
+            <div class="profile-icon">
+                <i class="ri-user-3-line"></i>
             </div>
-        </header>
+
+            <div class="profile-details">
+                <strong>ADMIN</strong>
+                <span id="navbarUserEmail">admin@example.com</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
 
         <!-- PAGE CONTENT -->
         <div class="content-area">

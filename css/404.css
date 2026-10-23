@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }
 
+html, body {
+  overflow-x: hidden;  
+}
+
 :root {
     --error-navy: #071326;
     --error-gold: #c99037;

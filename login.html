@@ -291,28 +291,43 @@
                         </div>
                     </div>
 
-                    <!-- Password -->
-                    <div class="input-group">
-                        <div class="password-label-row">
-                            <label for="password">Password</label>
-                            <button type="button" class="text-button"
-                                id="forgotPasswordBtn">Forgot password?</button>
-                        </div>
 
-                        <div class="input-wrap">
-                            <i class="ri-lock-password-line input-icon"></i>
-                            <input type="password" id="password"
-                                placeholder="Enter your password"
-                                autocomplete="current-password" required>
+<!-- Password -->
+<div class="input-group">
+    <div class="password-label-row">
+        <label for="password">Password</label>
 
-                            <button type="button" class="password-toggle"
-                                id="togglePassword" aria-label="Show password">
-                                <i class="ri-eye-line"></i>
-                            </button>
+        <button
+            type="button"
+            class="text-button"
+            id="forgotPasswordBtn"
+            onclick="window.location.href='404.html'">
+            Forgot password?
+        </button>
+    </div>
 
-                            <span class="input-focus-line"></span>
-                        </div>
-                    </div>
+    <div class="input-wrap">
+        <i class="ri-lock-password-line input-icon"></i>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required>
+
+        <button
+            type="button"
+            class="password-toggle"
+            id="togglePassword"
+            aria-label="Show password">
+            <i class="ri-eye-line"></i>
+        </button>
+
+        <span class="input-focus-line"></span>
+    </div>
+</div>
+
 
                     <!-- Remember Me -->
                     <div class="form-options">

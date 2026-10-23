@@ -30,6 +30,10 @@ html {
     scroll-padding-top: 95px;
 }
 
+html, body {
+  overflow-x: hidden;  
+}
+
 body {
     font-family: "Segoe UI", Arial, sans-serif;
     background: var(--navy);

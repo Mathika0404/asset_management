@@ -172,6 +172,13 @@ populateUserDetails();
         event.preventDefault();
         showSection("dashboardSection");
     });
+    
+    const mobileBrandHome = document.getElementById("mobileBrandHome");
+
+mobileBrandHome?.addEventListener("click", (event) => {
+    event.preventDefault();
+    showSection("dashboardSection");
+});
 
     /* Mobile sidebar */
 
@@ -382,4 +389,16 @@ populateUserDetails();
     ========================================= */
 
     showSection("dashboardSection");
+});
+
+document.addEventListener("click", (e) => {
+    if (window.innerWidth >= 901 && window.innerWidth <= 1000) {
+        if (
+            sidebar.classList.contains("sidebar-open") &&
+            !sidebar.contains(e.target) &&
+            !menuToggle.contains(e.target)
+        ) {
+            sidebar.classList.remove("sidebar-open");
+        }
+    }
 });

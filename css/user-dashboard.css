@@ -27,6 +27,10 @@
     padding: 0;
 }
 
+html, body {
+  overflow-x: hidden;  
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -1822,5 +1826,157 @@ tbody td:first-child {
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
         transition-duration: .01ms !important;
+    }
+}
+
+
+/* Hidden on desktop */
+.mobile-nav-logo {
+    display: none;
+}
+
+/* =====================================
+   TABLET & MOBILE VIEW
+===================================== */
+
+@media (max-width: 1000px) {
+
+    /* Topbar layout */
+    .topbar {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        position: relative;
+    }
+
+    /* Hamburger menu */
+    .mobile-menu-btn {
+        display: flex;
+        align-self: flex-start;
+        z-index: 11;
+    }
+
+    /* Center logo */
+    .mobile-nav-logo {
+        display: flex;
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+    }
+
+    .mobile-nav-logo img {
+        width: 125px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Welcome content below navbar row */
+    .topbar-left {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        margin-top: 45px;
+    }
+
+    .welcome-block {
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    /* Sidebar controlled by hamburger */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -280px;
+        height: 100vh;
+        z-index: 1000;
+        transition: left 0.3s ease;
+    }
+
+    .sidebar.sidebar-open {
+        left: 0;
+    }
+}
+
+@media (min-width: 901px) and (max-width: 1000px) {
+
+    .sidebar {
+        display: block !important;
+        position: fixed;
+        top: 0;
+        left: -280px;
+        width: 280px;
+        height: 100vh;
+        z-index: 1000;
+        transition: left 0.3s ease;
+    }
+
+    .sidebar.sidebar-open {
+        left: 0;
+    }
+
+    .main-content {
+        margin-left: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+        position: relative;
+        z-index: 1001;
+    }
+}
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 480px) {
+
+    .topbar {
+        padding: 15px;
+        gap: 16px;
+    }
+
+    .mobile-nav-logo img {
+        width: 100px;
+    }
+
+    .welcome-block h1 {
+        font-size: 21px;
+    }
+
+    .welcome-block p {
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .topbar-right {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .notification-btn {
+        display: flex;
+        margin-right: auto;
+    }
+
+    .profile-trigger {
+        margin-left: auto;
+    }
+
+    .profile-meta,
+    .profile-trigger > i {
+        display: none;
     }
 }
