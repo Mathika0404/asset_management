@@ -3060,3 +3060,204 @@ body.page-loaded .hero-slide {
         animation: none;
     }
 }
+
+
+/* =========================================
+   BLOGS PAGE — MOBILE HORIZONTAL SCROLL FIX
+========================================= */
+
+@media screen and (max-width: 780px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin: 0;
+        overflow-x: clip !important;
+    }
+
+    body {
+        position: relative;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    main,
+    main > section,
+    .blogs-hero,
+    .latest-blogs-section,
+    .editorial-section,
+    .market-perspectives,
+    .site-footer {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    /* FIX 1: MOBILE NAVIGATION */
+    .site-header .navigation {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        bottom: 0 !important;
+        left: auto !important;
+
+        width: min(280px, 88vw) !important;
+        max-width: 100vw !important;
+        min-width: 0 !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+
+        margin: 0 !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+
+        /* Avoid moving the hidden menu outside the viewport */
+        transform: none !important;
+        clip-path: inset(0 0 0 100%);
+        visibility: hidden;
+        pointer-events: none;
+
+        transition:
+            clip-path 0.35s ease,
+            visibility 0.35s ease !important;
+    }
+
+    .site-header .navigation.open {
+        transform: none !important;
+        clip-path: inset(0);
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    /* FIX 2: HERO BACKGROUND ANIMATION */
+    .blogs-hero {
+        position: relative;
+        overflow: clip !important;
+        isolation: isolate;
+    }
+
+    .blogs-hero-bg,
+    .blogs-hero-overlay,
+    .blogs-hero-grid {
+        max-width: none !important;
+        min-width: 0 !important;
+        pointer-events: none;
+    }
+
+    .blogs-hero-bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* FIX 3: HERO CONTENT */
+    .blogs-hero-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .blogs-hero-content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .blogs-hero-content h1,
+    .blogs-hero-description,
+    .blogs-eyebrow,
+    .blogs-hero-actions,
+    .blogs-hero-highlights {
+        max-width: 100%;
+        min-width: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .blogs-hero-highlights {
+        display: flex;
+        width: 100%;
+    }
+
+    .blogs-highlight {
+        min-width: 0;
+        padding-left: 6px;
+        padding-right: 6px;
+        overflow-wrap: anywhere;
+    }
+
+    .blogs-scroll-indicator {
+        right: 16px;
+        max-width: calc(100% - 32px);
+    }
+
+    /* FIX 4: BACKGROUND DECORATIONS */
+    .latest-blogs-section,
+    .editorial-section,
+    .market-perspectives {
+        overflow: clip;
+    }
+
+    .latest-blogs-container,
+    .editorial-container,
+    .market-perspectives-container,
+    .footer-container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    img,
+    video,
+    iframe,
+    svg {
+        max-width: 100%;
+    }
+}
+
+/* EXTRA SMALL DEVICES */
+@media screen and (max-width: 360px) {
+
+    .blogs-hero-container {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .blogs-hero-content h1 {
+        font-size: clamp(32px, 10vw, 40px);
+        letter-spacing: -1px;
+        overflow-wrap: anywhere;
+    }
+
+    .blogs-eyebrow {
+        gap: 8px;
+        font-size: 8px;
+        letter-spacing: 1.5px;
+    }
+
+    .blogs-hero-description {
+        font-size: 12px;
+        line-height: 1.7;
+    }
+
+    .blogs-highlight {
+        gap: 4px;
+        padding-left: 4px;
+        padding-right: 4px;
+        font-size: 7px;
+        letter-spacing: 0;
+    }
+
+    .blogs-highlight-number {
+        font-size: 11px;
+    }
+}

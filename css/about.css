@@ -2791,3 +2791,692 @@ body.page-loaded .hero-slide {
         transition: none !important;
     }
 }
+
+/* EXTRA SMALL MOBILE — 320px RESPONSIVE FIX */
+@media (max-width: 320px) {
+
+/* GLOBAL WIDTH FIX */
+html,
+body {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0;
+    overflow-x: clip !important;
+    overscroll-behavior-x: none;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+#root,
+main,
+section,
+header,
+footer,
+.page-wrapper,
+.container {
+    max-width: 100%;
+    min-width: 0;
+}
+
+main {
+    width: 100%;
+    margin-inline: 0;
+    overflow-x: clip;
+}
+
+img,
+video,
+iframe,
+svg,
+canvas {
+    max-width: 100%;
+}
+
+/* HEADER */
+.site-header {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 65px;
+    padding: 0 12px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.brand {
+    min-width: 0;
+    max-width: calc(100% - 55px);
+}
+
+.brand-logo {
+    display: block;
+    width: 105px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.menu-toggle {
+    display: flex;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+/* MOBILE NAVIGATION */
+.site-header #navigation,
+.site-header .navigation {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: auto !important;
+
+    width: min(280px, 88vw) !important;
+    max-width: 100vw !important;
+    min-width: 0 !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+
+    margin: 0 !important;
+    padding: 95px 18px 25px !important;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+
+    box-sizing: border-box !important;
+    overflow-x: clip !important;
+    overflow-y: auto;
+
+    transform: translate3d(100%, 0, 0) !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+
+    z-index: 1001;
+}
+
+.site-header #navigation.open,
+.site-header .navigation.open {
+    transform: translate3d(0, 0, 0) !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+.site-header #navigation .nav-link,
+.site-header .navigation .nav-link {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 12px 0;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.site-header #navigation .login-button,
+.site-header .navigation .login-button {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    font-size: 12px;
+}
+
+/* HOME HERO */
+.home-hero {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 0;
+    height: auto;
+    padding-bottom: 70px;
+    overflow: clip;
+    isolation: isolate;
+}
+
+.home-hero-container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 105px 16px 25px;
+    gap: 25px;
+}
+
+.home-hero-container > * {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.home-hero-title {
+    max-width: 100%;
+    font-size: clamp(28px, 9.5vw, 34px);
+    line-height: 1.12;
+    letter-spacing: -1px;
+    overflow-wrap: anywhere;
+}
+
+.home-hero-description {
+    max-width: 100%;
+    min-width: 0;
+    font-size: 12px;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+}
+
+.home-hero-visual {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 260px;
+    overflow: clip;
+}
+
+.hero-glass-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 15px;
+}
+
+.orbit-one,
+.orbit-two {
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+}
+
+.orbit-one {
+    width: min(220px, 100%);
+}
+
+.orbit-two {
+    width: min(250px, 100%);
+}
+
+.hero-bottom {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 12px 15px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+}
+
+/* SERVICES HERO */
+.services-hero {
+    position: relative;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+    overflow: clip !important;
+    contain: layout paint;
+    isolation: isolate;
+}
+
+/* Absolute background layers */
+.services-hero-bg,
+.services-hero-overlay,
+.services-hero-grid {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.services-hero-bg,
+.services-hero-overlay,
+.services-hero-grid {
+    overflow: clip;
+}
+
+/* Override oversized transformed background */
+.services-hero-bg {
+    transform-origin: center center;
+}
+
+/* Hero content */
+.services-hero-content {
+    position: relative;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+.services-hero-content > * {
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.services-hero-title {
+    max-width: 100%;
+    min-width: 0;
+    font-size: clamp(27px, 8.8vw, 32px);
+    line-height: 1.15;
+    letter-spacing: -1px;
+    overflow-wrap: anywhere;
+}
+
+.services-hero-description {
+    max-width: 100%;
+    min-width: 0;
+    font-size: 12px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.services-hero-side {
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.services-hero-bottom {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    gap: 8px;
+    box-sizing: border-box;
+}
+
+.services-hero-bottom > * {
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.services-hero-scroll {
+    max-width: 100%;
+    font-size: 9px;
+    overflow-wrap: anywhere;
+}
+
+.services-hero img,
+.services-hero video,
+.services-hero svg {
+    max-width: 100%;
+}
+
+/* SECTIONS */
+.trust-section,
+.services-section,
+.insights-section,
+.strategy-section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-inline: 0;
+    padding: 50px 16px;
+    box-sizing: border-box;
+}
+
+.trust-heading,
+.section-top {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.section-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.section-top > *,
+.trust-heading > * {
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.strategy-section {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+.strategy-visual {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 260px;
+}
+
+.insights-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+}
+
+.insights-grid > * {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+/* PREVENT LONG TEXT / BUTTON OVERFLOW */
+h1, h2, h3, p, a, button, span {
+    overflow-wrap: anywhere;
+}
+
+button,
+.btn,
+.button {
+    max-width: 100%;
+}
+
+    .story-section,
+    .story-content,
+    .story-wrapper,
+    .story-text,
+    .story-visual {
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Absolute story elements */
+    .story-section [class*="story-"],
+    .story-section [class*="hero-"] {
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .story-v2 {
+    position: relative;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: clip !important;
+    box-sizing: border-box !important;
+}
+
+.story-v2-glow {
+    max-width: 100% !important;
+    pointer-events: none;
+    overflow: clip;
+}
+
+/* Keep decorative glow inside its parent */
+.story-v2-glow {
+    left: 50% !important;
+    right: auto !important;
+    width: 100% !important;
+    transform: translateX(-50%) !important;
+}
+
+}
+
+/* =========================================
+   320px — FINAL HORIZONTAL OVERFLOW FIX
+========================================= */
+
+@media (max-width: 320px) {
+
+    html {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: clip !important;
+    }
+
+    body {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        overflow-x: clip !important;
+    }
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    main,
+    main > section {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    /* HERO BACKGROUND */
+    .home-hero,
+    .home-hero-container,
+    .home-hero-visual,
+    .services-hero,
+    .services-hero-content {
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .home-hero,
+    .services-hero {
+        overflow: clip !important;
+        isolation: isolate;
+    }
+
+    .hero-background,
+    .services-hero-bg,
+    .services-hero-overlay,
+    .services-hero-grid {
+        max-width: none !important;
+        min-width: 0 !important;
+    }
+
+    .hero-background {
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+    }
+
+    /* HERO BOTTOM */
+    .hero-bottom {
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    /* NAVIGATION — retain slide animation */
+    .site-header #navigation,
+    .site-header .navigation {
+        width: min(280px, 88vw) !important;
+        max-width: calc(100vw - 20px) !important;
+        min-width: 0 !important;
+        right: 0 !important;
+        left: auto !important;
+    }
+
+    /* CONTENT */
+    .home-hero-container {
+        grid-template-columns: minmax(0, 1fr) !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    .home-hero-title,
+    .home-hero-description,
+    .services-hero-title,
+    .services-hero-description {
+        min-width: 0 !important;
+        max-width: 100% !important;
+        overflow-wrap: anywhere;
+    }
+
+    .insights-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+    }
+}
+
+/* =========================================
+   320px — FINAL HORIZONTAL OVERFLOW FIX
+========================================= */
+@media screen and (max-width: 320px) {
+
+    html,
+    body {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        overflow-x: clip !important;
+    }
+
+    body {
+        position: relative;
+    }
+
+    main {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        overflow-x: clip !important;
+    }
+
+    /* HEADER */
+    .site-header {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding-inline: 10px !important;
+    }
+
+    .brand {
+        min-width: 0 !important;
+        max-width: calc(100% - 55px) !important;
+    }
+
+    .brand-logo {
+        width: 100px !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    .menu-toggle {
+        flex-shrink: 0 !important;
+        margin-left: auto !important;
+    }
+
+    /* CLOSED MOBILE NAVIGATION */
+    .site-header #navigation,
+    .site-header .navigation {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        left: auto !important;
+
+        width: min(280px, 88vw) !important;
+        max-width: 100vw !important;
+        min-width: 0 !important;
+
+        transform: translateX(100%) !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+
+        overflow-x: clip !important;
+    }
+
+    /* OPEN NAVIGATION */
+    .site-header #navigation.open,
+    .site-header .navigation.open {
+        transform: translateX(0) !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
+
+    /* HOME HERO BACKGROUND */
+    .home-hero,
+    .home-hero-container {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-inline: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    .hero-background,
+    .hero-bg,
+    .home-hero-bg {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Fix transformed background if it exceeds the hero */
+    .home-hero {
+        position: relative;
+        overflow: hidden !important;
+        isolation: isolate;
+    }
+
+    /* HERO BOTTOM — left:20 + width:320 was exceeding viewport */
+    .hero-bottom {
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        padding-inline: 12px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* SERVICES HERO */
+    .services-hero {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+        margin-inline: 0 !important;
+        overflow: hidden !important;
+        contain: layout paint;
+    }
+
+    .services-hero-bg,
+    .services-hero-overlay,
+    .services-hero-grid {
+        max-width: 100% !important;
+    }
+
+    /* Prevent oversized decorative animation */
+    .story-v2-glow {
+        max-width: 100% !important;
+        pointer-events: none;
+    }
+
+    /* Prevent grid/flex children from forcing width */
+    .home-hero-container > *,
+    .services-hero-content > *,
+    .hero-bottom > * {
+        min-width: 0 !important;
+        max-width: 100% !important;
+    }
+
+    img,
+    video,
+    iframe,
+    svg {
+        max-width: 100%;
+    }
+}
